@@ -1,10 +1,6 @@
-# require 
+# require
 
 class App
-  def initialize
-
-  end
-
   def list_options
     puts 'Welcome to your own Catalogue of things'
     puts 'Choose an option from below:
@@ -25,8 +21,7 @@ class App
 
   def enter_option
     print 'Enter option (1 - 13): '
-    option = gets.chomp.to_i
-    option
+    gets.chomp.to_i
   end
 
   def choose_method(option)
@@ -51,7 +46,7 @@ class App
     #   @game.add_game
     when 10
       puts 'Thank you for using our App'
-      exit()
+      exit
     else
       puts 'Wrong choice, try again!'
     end
