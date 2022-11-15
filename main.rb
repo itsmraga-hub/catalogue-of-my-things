@@ -1,9 +1,9 @@
-require './app'
+require './operations'
 
-@pp = App.new
+@operations = Operations.new
 
 def main
-  @app.list_options
+  @operations.run
 end
 
 main
