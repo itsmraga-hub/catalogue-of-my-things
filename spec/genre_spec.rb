@@ -1,5 +1,5 @@
-require '../musicAlbum/genre'
-require '../musicAlbum/music_album'
+require_relative '../musicAlbum/genre'
+require_relative '../musicAlbum/music_album'
 
 describe MusicAlbum do
   context 'When testing the Genre class' do
