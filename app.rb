@@ -25,23 +25,23 @@ class App
     puts 
   end
 
-  # def add_music_album
-  #   puts 'Which Genre: '
-  #   list_genres
-  #   print 'Is your genre in the list[Y/N]: '
-  #   choice = gets.chomp.upcase
-  #   case choice
-  #   when 'Y'
-  #     print 'Enter genre id: '
-  #     id = gets.chomp.to_i
-  #     create_music_album(id)
-  #   when 'N'
-  #     create_genre
-  #     create_music_album(-1)
-  #   else
-  #     puts 'Wrong choice, try again'
-  #   end
-  # end
+  def add_music_album
+    puts 'Which Genre: '
+    list_genres
+    print 'Is your genre in the list[Y/N]: '
+    choice = gets.chomp.upcase
+    case choice
+    when 'Y'
+      print 'Enter genre id: '
+      id = gets.chomp.to_i
+      create_music_album(id)
+    when 'N'
+      create_genre
+      create_music_album(-1)
+    else
+      puts 'Wrong choice, try again'
+    end
+  end
 
   # def create_genre
   #   print 'Add Genre: '
