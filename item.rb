@@ -9,11 +9,10 @@ class Item
     @archived = archived
   end
 
-  # def set_genre(genre); end
-
-  # def set_author(author); end
-
-  # def set_source(source); end
+  def genre=(genre)
+    @genre = genre
+    genre.music_album_items << self
+  end
 
   def can_be_archived?
     2022 - @publish_date > 10
