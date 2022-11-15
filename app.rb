@@ -1,56 +1,36 @@
+require './musicAlbum/genre'
+require './musicAlbum/music_album'
+
 class App
-  def list_options
-    puts 'Welcome to your own Catalogue of things'
-    puts 'Choose an option from below:
-    1 - List all books
-    2 - List all music albums
-    3 - List of games
-    4 - List all labels
-    5 - List all authors
-    6 - List all sources
-    7 - Add a book
-    8 - Add a music album
-    9 - Add a game
-    10 - Quit
-    '
-    opt = enter_option
-    choose_method(opt)
+  def initialize
+    @genres = []
+    @music_albums = []
   end
 
-  def enter_option
-    print 'Enter option (1 - 13): '
-    gets.chomp.to_i
-  end
-
-  def choose_method(option)
-    case option
-    # when 1
-    #   @book.display_books
-    # when 2
-    #   @music.display_music_albums
-    # when 3
-    #   @game.display_games
-    # when 4
-    #   @book.list_labels
-    # when 5
-    #   @game.list_authors
-    # when 6
-    #   @music.list_sources
-    # when 7
-    #   @book.add_book
-    # when 8
-    #   @music.add_music_album
-    # when 9
-    #   @game.add_game
-    when 10
-      puts 'Thank you for using our App'
-      exit
-    else
-      puts 'Wrong choice, try again!'
+  def list_music_albums
+    puts 'Current Music Albums'
+    @music_albums.each_with_index do |album, i|
+      puts "#{i + 1}) Music Album name: #{album.name}"
     end
   end
+
+  def list_genres
+    puts 'Current Genres available'
+    @genres.each_with_index do |genre, i|
+      puts "Genre #{i + 1}: #{genre}"
+    end
+  end
+
+  def add_music_album
+    puts 'Create Music album'
+    puts 'Which Genre'
+    list_genres
+  end
+
+  def add_genre
+    puts 'Add Genre'
+    puts 'Genre name: '
+    name = gets.chomp
+    @genres.push(Genre.new(name))
+  end
 end
-
-a = App.new
-
-puts a.list_options
