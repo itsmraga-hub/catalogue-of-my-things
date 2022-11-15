@@ -23,8 +23,9 @@ class App
 
   def list_genres
     puts 'Current Genres available'
-    @genres.each_with_index do |genre, i|
-      puts "Genre index #{i}: #{genre.name}"
+    genres_list = @file_genres.load
+    genres_list.each_with_index do |genre, i|
+      puts "Genre index #{i}: #{genre['name']}"
     end
     puts
   end
@@ -51,6 +52,19 @@ class App
     print 'Add Genre: '
     name = gets.chomp
     @genres.push(Genre.new(name))
+    puts 'Genre Added'
+    save_genres
+  end
+
+  def save_genres
+    genres_list = @file_genres.load
+    @genres.each do |genre|
+      genres_list << {
+        id: genre.id,
+        name: genre.name
+      }
+    end
+    @file_genres.save(genres_list)
   end
 
   def create_music_album(index)
@@ -63,8 +77,14 @@ class App
     print 'Release year[Year only] e.g. 1990 or 2011: '
     year = gets.chomp.to_i
     music_album = MusicAlbum.new(title, on_spotify, year)
-    @genres[index].add_item(music_album)
+    genres_list = @file_genres.load
+    genre = Genre.new(genres_list[index]['name'])
+    genre.add_item(music_album)
     @music_albums.push(music_album)
+    save_music
+  end
+
+  def save_music
     music_list = @file_music_albums.load
     @music_albums.each do |music|
       music_list << {
@@ -74,11 +94,5 @@ class App
       }
     end
     @file_music_albums.save(music_list)
-  end
-
-  def add_genre
-    puts 'Add Genre name: '
-    name = gets.chomp
-    @genres.push(Genre.new(name))
   end
 end
