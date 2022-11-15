@@ -11,5 +11,3 @@ class Book < Item
   end
   attr_accessor :publisher, :cover_state
 end
-
-book = Book.new('22-02-2022', 'RK Publishing House', 'good')

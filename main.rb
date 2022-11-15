@@ -1,6 +1,5 @@
-require './app'
-
-@pp = App.new
+require_relative './app'
+@app = App.new
 
 def main
   @app.list_options

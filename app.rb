@@ -1,5 +1,3 @@
-# require
-
 class App
   def list_options
     puts 'Welcome to your own Catalogue of things'
