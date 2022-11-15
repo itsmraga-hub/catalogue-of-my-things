@@ -1,16 +1,14 @@
 class Item
-  def initialize(label, publish_date, archived)
+  def initialize(publish_date, archived: false)
     @id = Random.rand(1...1000)
-    @label = label
     @publish_date = publish_date
     @archived = archived
   end
 
-  # def set_genre(genre); end
-
-  # def set_author(author); end
-
-  # def set_source(source); end
+  def genre=(genre)
+    @genre = genre
+    genre.music_album_items << self
+  end
 
   def can_be_archived?
     2022 - @publish_date > 10
