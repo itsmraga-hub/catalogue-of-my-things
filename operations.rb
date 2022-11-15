@@ -1,4 +1,5 @@
 require './app'
+require 'pry'
 
 class Operations
   def initialize
@@ -13,7 +14,7 @@ class Operations
     3 - List of games
     4 - List all labels
     5 - List all authors
-    6 - List all sources
+    6 - List all genres
     7 - Add a book
     8 - Add a music album
     9 - Add a game
