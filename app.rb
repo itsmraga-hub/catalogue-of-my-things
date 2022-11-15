@@ -14,7 +14,7 @@ class App
 
   def list_music_albums
     puts 'Current Music Albums'
-    binding.pry
+    # binding.pry
     @music_albums.each_with_index do |album, i|
       puts "#{i + 1}] Music Album name: #{album.name} Genre: #{album.genre.name}"
     end
