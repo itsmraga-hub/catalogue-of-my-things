@@ -17,8 +17,8 @@ class Genre
   end
 end
 
-g = Genre.new("RnB")
-m = MusicAlbum.new('Love song', true, 2010, false)
-m_two = MusicAlbum.new('Hate song', true, 2020, false)
+# g = Genre.new('RnB')
+# m = MusicAlbum.new('Love song', true, 2010, false)
+# m_two = MusicAlbum.new('Hate song', true, 2020, false)
 
 # binding.pry
