@@ -43,34 +43,34 @@ class App
     end
   end
 
-  # def create_genre
-  #   print 'Add Genre: '
-  #   name = gets.chomp
-  #   @genres.push(Genre.new(name))
-  # end
+  def create_genre
+    print 'Add Genre: '
+    name = gets.chomp
+    @genres.push(Genre.new(name))
+  end
 
-  # def create_music_album(index)
-  #   print 'Create Music album:
-  #   Enter Title: '
-  #   title = gets.chomp
-  #   print 'Is it on spotify:[true(T)/false(F)]: '
-  #   on_spotify = gets.chomp.downcase
-  #   if on_spotify == 't'
-  #     on_spotify = true
-  #   else
-  #     on_spotify = false
-  #   end
-  #   print 'Release year[Year only] e.g. 1990 or 2011: '
-  #   year = gets.chomp.to_i
-  #   music_album = MusicAlbum.new(title, on_spotify, year)
-  #   @genres[index].add_item(music_album)
-  #   @music_albums.push(music_album)
-  #   # binding.pry
-  # end
+  def create_music_album(index)
+    print 'Create Music album:
+    Enter Title: '
+    title = gets.chomp
+    print 'Is it on spotify:[true(T)/false(F)]: '
+    on_spotify = gets.chomp.downcase
+    if on_spotify == 't'
+      on_spotify = true
+    else
+      on_spotify = false
+    end
+    print 'Release year[Year only] e.g. 1990 or 2011: '
+    year = gets.chomp.to_i
+    music_album = MusicAlbum.new(title, on_spotify, year)
+    @genres[index].add_item(music_album)
+    @music_albums.push(music_album)
+    # binding.pry
+  end
 
-  # def add_genre
-  #   puts 'Add Genre name: '
-  #   name = gets.chomp
-  #   @genres.push(Genre.new(name))
-  # end
+  def add_genre
+    puts 'Add Genre name: '
+    name = gets.chomp
+    @genres.push(Genre.new(name))
+  end
 end
