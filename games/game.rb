@@ -4,7 +4,7 @@ class Game < Item
   attr_accessor :name_of_game, :multiplayer, :last_played_at, :first_name, :last_name
 
   def initialize(name_of_game, multiplayer, last_played_at, first_name, last_name)
-    super(genre, author, label, publish_date)
+    super(archived)
     @name_of_game = name_of_game
     @multiplayer = multiplayer
     @last_played_at = last_played_at

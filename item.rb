@@ -1,13 +1,10 @@
 require_relative './authors/author'
 
 class Item
-  attr_accessor :genre, :author, :label, :publish_date, :id, :archived
+  attr_accessor :publish_date, :id, :archived
 
-  def initialize(genre, author, label, publish_date, archived: true)
+  def initialize(publish_date, archived: true)
     @id = Random.rand(1...1000)
-    @genre = genre
-    @author = author
-    @label = label
     @publish_date = publish_date
     @archived = archived
   end
