@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Love song",
+    "on_spotify": true,
+    "genre": "RnB"
+  },
+  {
+    "name": "Love song",
+    "on_spotify": true,
+    "genre": "RnB"
+  },
+  {
+    "name": "Guitar song",
+    "on_spotify": true,
+    "genre": "Hate song"
+  },
+  {
+    "name": "Hiphop song",
+    "on_spotify": true,
+    "genre": "HipHo["
+  },
+  {
+    "name": "Rock song",
+    "on_spotify": true,
+    "genre": "Rock"
+  }
+]
