@@ -17,13 +17,13 @@ class App
     puts
   end
 
-  # def list_genres
-  #   puts 'Current Genres available'
-  #   @genres.each_with_index do |genre, i|
-  #     puts "Genre index #{i}: #{genre.name}"
-  #   end
-  #   puts 
-  # end
+  def list_genres
+    puts 'Current Genres available'
+    @genres.each_with_index do |genre, i|
+      puts "Genre index #{i}: #{genre.name}"
+    end
+    puts 
+  end
 
   # def add_music_album
   #   puts 'Which Genre: '
