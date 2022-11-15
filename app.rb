@@ -26,7 +26,7 @@ class App
     @genres.each_with_index do |genre, i|
       puts "Genre index #{i}: #{genre.name}"
     end
-    puts 
+    puts
   end
 
   def add_music_album
@@ -59,11 +59,7 @@ class App
     title = gets.chomp
     print 'Is it on spotify:[true(T)/false(F)]: '
     on_spotify = gets.chomp.downcase
-    if on_spotify == 't'
-      on_spotify = true
-    else
-      on_spotify = false
-    end
+    on_spotify = on_spotify == 't'
     print 'Release year[Year only] e.g. 1990 or 2011: '
     year = gets.chomp.to_i
     music_album = MusicAlbum.new(title, on_spotify, year)
