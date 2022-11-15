@@ -104,7 +104,6 @@ class App
       game = Game.new(name_of_game, multiplayer, last_played_at, first_name, last_name)
       author = Author.new(first_name, last_name)
       @games.push(game)
-      #### STRUGGLING :)
       games_list = @file_games.load
       @games.each do |game|
         games_list << {
