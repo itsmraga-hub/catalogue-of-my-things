@@ -2,12 +2,17 @@ require './musicAlbum/genre'
 require './musicAlbum/music_album'
 require './file'
 require 'json'
-require 'pry'
+require_relative './games/game'
+require_relative './authors/author'
 
 class App
   def initialize
     @genres = []
     @music_albums = []
+    @games = []
+    @authors = []
+    @file_games = Persist.new('store/games.json')
+    @file_authors = Persist.new('store/authors.json')
     @file_music_albums = Persist.new('store/music_albums.json')
     @file_genres = Persist.new('store/genres.json')
   end
@@ -80,5 +85,100 @@ class App
     puts 'Add Genre name: '
     name = gets.chomp
     @genres.push(Genre.new(name))
+  end
+
+  def add_game
+    print 'Name of Game: '
+    name_of_game = gets.chomp.to_s
+    print 'Is the game multiplayer [y/n]: '
+    multiplayer = gets.chomp.to_s
+    print 'How many years since the last time you played: '
+    last_played_at = gets.chomp.to_s
+    print 'First Name of the Author: '
+    first_name = gets.chomp.to_s
+    print 'Last Name of the Author: '
+    last_name = gets.chomp.to_s
+    case multiplayer
+    when 'y'
+      multiplayer = 'Yes'
+      game = Game.new(name_of_game, multiplayer, last_played_at, first_name, last_name)
+      author = Author.new(first_name, last_name)
+      @games.push(game)
+      #### STRUGGLING :)
+      games_list = @file_games.load
+      @games.each do |game|
+        games_list << {
+          name_of_game: game.name_of_game,
+          multiplayer: game.multiplayer,
+          last_played_at: game.last_played_at,
+          first_name: game.first_name,
+          last_name: game.last_name
+        }
+      end
+      @authors.push(author)
+      authors_list = @file_authors.load
+      @authors.each do |author|
+        authors_list << {
+          first_name: author.first_name,
+          last_name: author.last_name
+        }
+      end
+      @file_authors.save(authors_list)
+      @file_games.save(games_list)
+      puts 'Game created successfully'
+    when 'n'
+      multiplayer = 'No'
+      game = Game.new(name_of_game, multiplayer, last_played_at, first_name, last_name)
+      author = Author.new(first_name, last_name)
+      @games.push(game)
+      games_list = @file_games.load
+      @games.each do |game|
+        games_list << {
+          name_of_game: game.name_of_game,
+          multiplayer: game.multiplayer,
+          last_played_at: game.last_played_at,
+          first_name: game.first_name,
+          last_name: game.last_name
+        }
+      end
+      @authors.push(author)
+      authors_list = @file_authors.load
+      @authors.each do |author|
+        authors_list << {
+          first_name: author.first_name,
+          last_name: author.last_name
+        }
+      end
+      @file_authors.save(authors_list)
+      @file_games.save(games_list)
+      puts 'Game created successfully'
+    else
+      puts 'Invalid Input...'
+    end
+
+  end
+
+  def list_all_games
+    games_list = @file_games.load
+    
+    if games_list.empty?
+      puts 'Oops!! You don\'t have any games at the moment.'
+    else
+      games_list.each_with_index do |game, index|
+        puts "#{index + 1}. #{game['name_of_game']}   AUTHOR: #{game['first_name']}   MULTIPLAYER: #{game['multiplayer']}   LAST PLAYED: #{game['last_played_at']}"
+      end
+    end
+  end
+
+  def list_all_authors
+    authors_list = @file_authors.load
+
+    if authors_list.empty?
+      puts 'Ooop!! There are no authors at the moment. Try adding one!'
+    else
+      authors_list.each_with_index do |author, index|
+        puts "#{index + 1}. NAME: #{author['first_name']} #{author['last_name']}"
+      end
+    end
   end
 end
