@@ -14,6 +14,11 @@ class Item
     genre.music_album_items << self
   end
 
+  def label=(label)
+    @label = label
+    label.items.push(self) unless label.items.include?(self)
+  end
+
   def can_be_archived?
     2022 - @publish_date > 10
   end
