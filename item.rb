@@ -1,6 +1,12 @@
+require_relative './authors/author'
+
 class Item
-  def initialize(label, publish_date, archived)
+  attr_accessor :genre, :author, :label, :publish_date, :id, :archived
+
+  def initialize(genre, author, label, publish_date, archived: true)
     @id = Random.rand(1...1000)
+    @genre = genre
+    @author = author
     @label = label
     @publish_date = publish_date
     @archived = archived
@@ -18,5 +24,10 @@ class Item
 
   def move_to_archive!
     @archived = true if can_be_archived?
+  end
+
+  def add_author=(author)
+    @author = author
+    author.items << self unless author.items.include?(self)
   end
 end
