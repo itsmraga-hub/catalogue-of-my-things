@@ -1,11 +1,15 @@
 require './musicAlbum/genre'
 require './musicAlbum/music_album'
+require './file'
+require 'json'
 require 'pry'
 
 class App
   def initialize
     @genres = []
     @music_albums = []
+    @file_music_albums = Persist.new('store/music_albums.json')
+    @file_genres = Persist.new('store/genres.json')
   end
 
   def list_music_albums
