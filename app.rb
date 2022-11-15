@@ -18,6 +18,7 @@ class App
     puts "Current Genres available"
     @genres.each_with_index do |genre, i|
       puts "Genre #{i + 1}: #{genre}"
+    end
   end
 
   def add_music_album
