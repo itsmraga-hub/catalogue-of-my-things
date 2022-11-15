@@ -14,9 +14,9 @@ class App
 
   def list_music_albums
     puts 'Current Music Albums'
-    # binding.pry
-    @music_albums.each_with_index do |album, i|
-      puts "#{i + 1}] Music Album name: #{album.name} Genre: #{album.genre.name}"
+    music_list = @file_music_albums.load
+    music_list.each_with_index do |album, i|
+      puts "#{i + 1}] Music Album name: #{album['name']} Genre: #{album['genre']}"
     end
     puts
   end
@@ -65,7 +65,15 @@ class App
     music_album = MusicAlbum.new(title, on_spotify, year)
     @genres[index].add_item(music_album)
     @music_albums.push(music_album)
-    # binding.pry
+    music_list = @file_music_albums.load
+    @music_albums.each do |music|
+      music_list << {
+        name: music.name,
+        on_spotify: music.on_spotify,
+        genre: music.genre.name
+      }
+    end
+    @file_music_albums.save(music_list)
   end
 
   def add_genre
