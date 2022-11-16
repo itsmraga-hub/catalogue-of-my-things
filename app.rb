@@ -2,12 +2,20 @@ require './musicAlbum/genre'
 require './musicAlbum/music_album'
 require './file'
 require 'json'
-require 'pry'
+require_relative './games/game'
+require_relative './authors/author'
+require_relative './games/create_game'
 
 class App
+  include CreateGame
+
   def initialize
     @genres = []
     @music_albums = []
+    @games = []
+    @authors = []
+    @file_games = Persist.new('store/games.json')
+    @file_authors = Persist.new('store/authors.json')
     @file_music_albums = Persist.new('store/music_albums.json')
     @file_genres = Persist.new('store/genres.json')
   end
@@ -97,5 +105,39 @@ class App
     end
     @music_albums = []
     @file_music_albums.save(music_list)
+  end
+
+  def add_genre
+    puts 'Add Genre name: '
+    name = gets.chomp
+    @genres.push(Genre.new(name))
+  end
+
+  def create_game
+    add_game
+  end
+
+  def list_all_games
+    games_list = @file_games.load
+
+    if games_list.empty?
+      puts 'Oops!! There are no any games at the moment.'
+    else
+      games_list.each do |game,|
+        puts "#{game['name_of_game']} by #{game['first_name']} MP:#{game['multiplayer']} LP:#{game['last_played_at']}"
+      end
+    end
+  end
+
+  def list_all_authors
+    authors_list = @file_authors.load
+
+    if authors_list.empty?
+      puts 'Ooop!! There are no authors at the moment. Try adding one!'
+    else
+      authors_list.each_with_index do |author, index|
+        puts "#{index + 1}. NAME: #{author['first_name']} #{author['last_name']}"
+      end
+    end
   end
 end
