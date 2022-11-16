@@ -1,5 +1,4 @@
 require './app'
-require 'pry'
 
 class Operations
   def initialize
@@ -28,8 +27,11 @@ class Operations
     loop do
       list_options
       opt = enter_option
-      if opt.between?(1, 10)
+      if opt.between?(1, 9)
         choose_method(opt)
+      elsif opt == 10
+        puts 'Thank you for using our App'
+        exit
       else
         puts 'Wrong choice, try again!'
       end
@@ -47,23 +49,20 @@ class Operations
       @app.list_books
     when 2
       @app.list_music_albums
-    # when 3
-    #   @game.display_games
+    when 3
+      @app.list_all_games
     when 4
       @app.list_label
-    # when 5
-    #   @game.list_authors
+    when 5
+      @app.list_all_authors
     when 6
       @app.list_genres
     when 7
       @app.add_books
     when 8
       @app.add_music_album
-    # when 9
-    #   @game.add_game
-    when 10
-      puts 'Thank you for using our App'
-      exit
+    when 9
+      @app.add_game
     end
   end
 end

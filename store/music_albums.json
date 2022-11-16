@@ -1,0 +1,32 @@
+[
+  {
+    "name": "William's song",
+    "on_spotify": true,
+    "genre": "RnB"
+  },
+  {
+    "name": "Another song",
+    "on_spotify": true,
+    "genre": "RnB"
+  },
+  {
+    "name": "November rain",
+    "on_spotify": true,
+    "genre": "RnB"
+  },
+  {
+    "name": "November rain",
+    "on_spotify": true,
+    "genre": "RnB"
+  },
+  {
+    "name": "November rain",
+    "on_spotify": false,
+    "genre": "Soul"
+  },
+  {
+    "name": "Guns and roses",
+    "on_spotify": false,
+    "genre": "Soul"
+  }
+]
