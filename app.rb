@@ -8,6 +8,7 @@ require_relative './games/game'
 require_relative './authors/author'
 require_relative './games/create_game'
 
+# rubocop:disable Metrics/ClassLength
 class App
   include CreateGame
 
@@ -187,3 +188,4 @@ class App
     end
   end
 end
+# rubocop:enable Metrics/ClassLength
