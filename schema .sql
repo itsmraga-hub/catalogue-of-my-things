@@ -16,3 +16,16 @@ CREATE TABLE author(
   last_name VARCHAR(250),
   PRIMARY KEY(id)
 );
+
+CREATE TABLE MUSICALBUM (
+  id SERIAL PRIMARY KEY,
+  music_album_name VARCHAR(100),
+  on_spotify BOOLEAN,
+  release_date DATE,
+  FOREIGN KEY(genre_id) REFERENCES GENRE (id) ON DELETE CASCADE
+);
+
+-- CREATE TABLE GENRE (
+--   id INT SERIAL PRIMARY KEY,
+--   genre_name VARCHAR(100),
+-- )
