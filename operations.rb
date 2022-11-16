@@ -27,8 +27,10 @@ class Operations
     loop do
       list_options
       opt = enter_option
-      if opt.between?(1, 9)
+      if opt.between?(1, 6)
         choose_method(opt)
+      elsif opt.between?(7, 9)
+        add_item(opt)
       elsif opt == 10
         puts 'Thank you for using our App'
         exit
@@ -57,6 +59,11 @@ class Operations
       @app.list_all_authors
     when 6
       @app.list_genres
+    end
+  end
+
+  def add_item(opt)
+    case opt
     when 7
       @app.add_books
     when 8

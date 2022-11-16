@@ -14,7 +14,7 @@ class App
   def initialize
     @genres = []
     @music_albums = []
-    @Books = []
+    @books = []
     @labels = []
     @games = []
     @authors = []
@@ -118,10 +118,10 @@ class App
     name = gets.chomp
     @genres.push(Genre.new(name))
   end
-  
+
   def list_books
     puts 'Current books'
-    @Books.each_with_index do |bk, i|
+    @books.each_with_index do |bk, i|
       puts "#{i}) publish_date: #{bk.publish_date}, publisher: #{bk.publisher}, cover_state: #{bk.cover_state} "
     end
     puts
@@ -148,7 +148,7 @@ class App
     print 'state of the cover (Good or Bad):'
     cover_state = gets.chomp
     book = Book.new(publish_date, publisher, cover_state)
-    @Books.push(book)
+    @books.push(book)
   end
 
   def create_label
@@ -158,7 +158,7 @@ class App
     color = gets.chomp
     @labels.push(Label.new(title, color))
   end
-  
+
   def create_game
     add_game
   end
