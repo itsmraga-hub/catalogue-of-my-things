@@ -8,6 +8,8 @@ class App
   def initialize
     @genres = []
     @music_albums = []
+    @books = []
+    @labels = []
     @file_music_albums = Persist.new('store/music_albums.json')
     @file_genres = Persist.new('store/genres.json')
   end
@@ -72,5 +74,47 @@ class App
     puts 'Add Genre name: '
     name = gets.chomp
     @genres.push(Genre.new(name))
+  end
+
+  # BOOk and Label-----
+
+  def list_books
+    puts 'Current books'
+    @books.each_with_index do |bk, i|
+      puts "#{i}) publish_date: #{bk.publish_date}, publisher: #{bk.publisher}, cover_state: #{bk.cover_state} "
+    end
+    puts
+  end
+
+  def list_label
+    puts 'Current labels availeble '
+    @labels.each_with_index do |label, i|
+      puts "Label Index #{i}: #{label.title}, Color: #{label.color}"
+    end
+  end
+
+  def add_books
+    create_label
+    print 'OOPS Catlog# '
+    print 'Publisher: '
+    publisher = gets.chomp
+
+    print 'OOP Catalog#'
+    print 'Publish date:'
+    publish_date = gets.chomp
+
+    print 'OOPS Catalog#'
+    print 'state of the cover (Good or Bad):'
+    cover_state = gets.chomp
+    book = Book.new(publish_date, publisher, cover_state)
+    @books.push(book)
+  end
+
+  def create_label
+    print 'Add Label:'
+    title = gets.chomp
+    print 'Add Color:'
+    color = gets.chomp
+    @labels.push(Label.new(title, color))
   end
 end
