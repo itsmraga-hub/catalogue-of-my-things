@@ -1,27 +1,37 @@
 [
   {
-    "name": "Love song",
+    "name": "William's song",
     "on_spotify": true,
     "genre": "RnB"
   },
   {
-    "name": "Love song",
+    "name": "Another song",
     "on_spotify": true,
     "genre": "RnB"
   },
   {
-    "name": "Guitar song",
+    "name": "November rain",
     "on_spotify": true,
-    "genre": "Hate song"
+    "genre": "RnB"
   },
   {
-    "name": "Hiphop song",
-    "on_spotify": true,
-    "genre": "HipHo["
+    "name": "November rain",
+    "on_spotify": false,
+    "genre": "Soul"
   },
   {
-    "name": "Rock song",
+    "name": "November rain",
     "on_spotify": true,
-    "genre": "Rock"
+    "genre": "RnB"
+  },
+  {
+    "name": "November rain",
+    "on_spotify": false,
+    "genre": "Soul"
+  },
+  {
+    "name": "Guns and roses",
+    "on_spotify": false,
+    "genre": "Soul"
   }
 ]

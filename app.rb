@@ -23,8 +23,9 @@ class App
 
   def list_genres
     puts 'Current Genres available'
-    @genres.each_with_index do |genre, i|
-      puts "Genre index #{i}: #{genre.name}"
+    genres_list = @file_genres.load
+    genres_list.each_with_index do |genre, i|
+      puts "Genre index #{i}: #{genre['name']}"
     end
     puts
   end
@@ -39,9 +40,12 @@ class App
       print 'Enter genre id: '
       id = gets.chomp.to_i
       create_music_album(id)
+      save_music
     when 'N'
       create_genre
+      save_genres
       create_music_album(-1)
+      save_music
     else
       puts 'Wrong choice, try again'
     end
@@ -51,6 +55,19 @@ class App
     print 'Add Genre: '
     name = gets.chomp
     @genres.push(Genre.new(name))
+    puts 'Genre Added'
+  end
+
+  def save_genres
+    genres_list = @file_genres.load
+    @genres.each do |genre|
+      genres_list << {
+        id: genre.id,
+        name: genre.name
+      }
+    end
+    @genres = []
+    @file_genres.save(genres_list)
   end
 
   def create_music_album(index)
@@ -63,8 +80,13 @@ class App
     print 'Release year[Year only] e.g. 1990 or 2011: '
     year = gets.chomp.to_i
     music_album = MusicAlbum.new(title, on_spotify, year)
-    @genres[index].add_item(music_album)
+    genres_list = @file_genres.load
+    genre = Genre.new(genres_list[index]['name'])
+    genre.add_item(music_album)
     @music_albums.push(music_album)
+  end
+
+  def save_music
     music_list = @file_music_albums.load
     @music_albums.each do |music|
       music_list << {
@@ -73,12 +95,7 @@ class App
         genre: music.genre.name
       }
     end
+    @music_albums = []
     @file_music_albums.save(music_list)
-  end
-
-  def add_genre
-    puts 'Add Genre name: '
-    name = gets.chomp
-    @genres.push(Genre.new(name))
   end
 end
