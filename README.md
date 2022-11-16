@@ -28,11 +28,10 @@ This repository includes files with plain SQL that can be used to recreate a dat
 - Twitter: [@milenalebel2](https://twitter.com/milenalebel2)
 - LinkedIn: [@Milen-Alebel](https://linkedin.com/in/Milen-Alebel)
 
-👤 **Christian I.B**
+👤 **Christian Iradukunda Byiringiro**
 
-- GitHub: [@Christian I.B](https://github.com/)
-- Twitter: [@Christian I.B](https://twitter.com/)
-- LinkedIn: [@Christian I.B](https://www.linkedin.com/in/)
+- GitHub: [@Christian I.B](https://github.com/Christianib003)
+- LinkedIn: [@Christian I.B](https://www.linkedin.com/in/christian-iradukunda/)
 
 👤 **William Raga**
 
