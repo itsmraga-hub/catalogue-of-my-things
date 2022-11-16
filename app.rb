@@ -40,9 +40,12 @@ class App
       print 'Enter genre id: '
       id = gets.chomp.to_i
       create_music_album(id)
+      save_music
     when 'N'
       create_genre
+      save_genres
       create_music_album(-1)
+      save_music
     else
       puts 'Wrong choice, try again'
     end
@@ -53,7 +56,6 @@ class App
     name = gets.chomp
     @genres.push(Genre.new(name))
     puts 'Genre Added'
-    save_genres
   end
 
   def save_genres
@@ -64,6 +66,7 @@ class App
         name: genre.name
       }
     end
+    @genres = []
     @file_genres.save(genres_list)
   end
 
@@ -81,7 +84,6 @@ class App
     genre = Genre.new(genres_list[index]['name'])
     genre.add_item(music_album)
     @music_albums.push(music_album)
-    save_music
   end
 
   def save_music
@@ -93,6 +95,7 @@ class App
         genre: music.genre.name
       }
     end
+    @music_albums = []
     @file_music_albums.save(music_list)
   end
 end
