@@ -37,26 +37,26 @@ class Operations
   end
 
   def enter_option
-    print 'Enter option (1 - 13): '
+    print 'Enter option (1 - 10): '
     gets.chomp.to_i
   end
 
   def choose_method(option)
     case option
-    # when 1
-    #   @book.display_books
+    when 1
+      @app.list_books
     when 2
       @app.list_music_albums
     # when 3
     #   @game.display_games
-    # when 4
-    #   @book.list_labels
+    when 4
+      @app.list_label
     # when 5
     #   @game.list_authors
     when 6
       @app.list_genres
-    # when 7
-    #   @book.add_book
+    when 7
+      @app.add_books
     when 8
       @app.add_music_album
     # when 9
