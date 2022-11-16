@@ -27,8 +27,11 @@ class Operations
     loop do
       list_options
       opt = enter_option
-      if opt.between?(1, 10)
+      if opt.between?(1, 9)
         choose_method(opt)
+      elsif opt == 10
+        puts 'Thank you for using our App'
+        exit
       else
         puts 'Wrong choice, try again!'
       end
@@ -60,9 +63,6 @@ class Operations
       @app.add_music_album
     when 9
       @app.add_game
-    when 10
-      puts 'Thank you for using our App'
-      exit
     end
   end
 end
