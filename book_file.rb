@@ -3,7 +3,7 @@ require './Book/label'
 require './file'
 require 'json'
 
-class Book_File
+class BookFile
   def initialize
     @labels = []
     @books = []
@@ -15,7 +15,7 @@ class Book_File
     puts 'Current books'
     books_list = @file_book.load
     books_list.each_with_index do |bk, i|
-      puts "#{i}) publish_date: #{bk['publish_date']}, publisher: #{bk['publisher']}, cover_state: #{bk['cover_state']} "
+      puts "#{i}) publish_date: #{bk['publish_date']} publisher: #{bk['publisher']}, cover_state: #{bk['cover_state']} "
     end
     puts
   end

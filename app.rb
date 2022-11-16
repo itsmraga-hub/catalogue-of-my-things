@@ -15,7 +15,7 @@ class App
 
   def initialize
     @music = Music.new
-    @book_file = Book_File.new
+    @book_file = BookFile.new
     @games = []
     @authors = []
     @file_games = Persist.new('store/games.json')
