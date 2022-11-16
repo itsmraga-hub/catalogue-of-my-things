@@ -24,9 +24,9 @@ This repository includes files with plain SQL that can be used to recreate a dat
 
 👤 **Milen Alebel**
 
-- GitHub: [@Milen-Alebel](https://github.com/)
-- Twitter: [@Milen-Alebel](https://twitter.com/)
-- LinkedIn: [@Milen-Alebel](https://linkedin.com/in/)
+- GitHub: [@milen-ale](https://github.com/@milen-ale)
+- Twitter: [@milenalebel2](https://twitter.com/milenalebel2)
+- LinkedIn: [@Milen-Alebel](https://linkedin.com/in/Milen-Alebel)
 
 👤 **Christian I.B**
 
