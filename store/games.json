@@ -12,5 +12,12 @@
     "last_played_at": "6",
     "first_name": "Christian",
     "last_name": "Iradukunda"
+  },
+  {
+    "name_of_game": "Tetris",
+    "multiplayer": "Yes",
+    "last_played_at": "8",
+    "first_name": "Will",
+    "last_name": "Raga"
   }
 ]
