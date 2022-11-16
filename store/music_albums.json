@@ -1,37 +1,17 @@
 [
   {
-    "name": "William's song",
-    "on_spotify": true,
-    "genre": "RnB"
-  },
-  {
-    "name": "Another song",
+    "name": "Where have you been",
     "on_spotify": true,
     "genre": "RnB"
   },
   {
     "name": "November rain",
     "on_spotify": true,
-    "genre": "RnB"
+    "genre": "Rock"
   },
   {
-    "name": "November rain",
+    "name": "Tight fittin jeans",
     "on_spotify": false,
-    "genre": "Soul"
-  },
-  {
-    "name": "November rain",
-    "on_spotify": true,
-    "genre": "RnB"
-  },
-  {
-    "name": "November rain",
-    "on_spotify": false,
-    "genre": "Soul"
-  },
-  {
-    "name": "Guns and roses",
-    "on_spotify": false,
-    "genre": "Soul"
+    "genre": "Country"
   }
 ]
