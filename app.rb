@@ -8,20 +8,18 @@ require 'json'
 require_relative './games/game'
 require_relative './authors/author'
 require_relative './games/create_game'
+require './book_file'
 
 class App
   include CreateGame
 
   def initialize
     @music = Music.new
-    @books = []
-    @labels = []
+    @book_file = Book_File.new
     @games = []
     @authors = []
     @file_games = Persist.new('store/games.json')
     @file_authors = Persist.new('store/authors.json')
-    @file_book = Persist.new('store/book.josn')
-    @file_label = Persist.new('store/label.json')
   end
 
   def list_music_albums
@@ -40,50 +38,28 @@ class App
     @music.create_music_album(id)
   end
 
+  # book and label
   def list_books
-    puts 'Current books'
-    @books.each_with_index do |bk, i|
-      puts "#{i}) publish_date: #{bk.publish_date}, publisher: #{bk.publisher}, cover_state: #{bk.cover_state} "
-    end
-    puts
+    @book_file.list_books
   end
 
   def list_label
-    puts 'Current labels availeble '
-    @labels.each_with_index do |label, i|
-      puts "Label Index #{i}: #{label.title}, Color: #{label.color}"
-    end
+    @book_file.list_label
   end
 
   def add_books
-    create_label
-    print 'OOPS Catlog# '
-    print 'Publisher: '
-    publisher = gets.chomp
-
-    print 'OOP Catalog#'
-    print 'Publish date:'
-    publish_date = gets.chomp
-
-    print 'OOPS Catalog#'
-    print 'state of the cover (Good or Bad):'
-    cover_state = gets.chomp
-    book = Book.new(publish_date, publisher, cover_state)
-    @books.push(book)
+    @book_file.add_books
   end
 
   def create_label
-    print 'Add Label:'
-    title = gets.chomp
-    print 'Add Color:'
-    color = gets.chomp
-    @labels.push(Label.new(title, color))
+    @book_file.create_label
   end
 
   def create_game
     add_game
   end
 
+  ## games
   def list_all_games
     games_list = @file_games.load
 
@@ -106,47 +82,5 @@ class App
         puts "#{index + 1}. NAME: #{author['first_name']} #{author['last_name']}"
       end
     end
-  end
-
-  # BOOk and Label-----
-
-  def list_books
-    puts 'Current books'
-    @books.each_with_index do |bk, i|
-      puts "#{i}) publish_date: #{bk.publish_date}, publisher: #{bk.publisher}, cover_state: #{bk.cover_state} "
-    end
-    puts
-  end
-
-  def list_label
-    puts 'Current labels availeble '
-    @labels.each_with_index do |label, i|
-      puts "Label Index #{i}: #{label.title}, Color: #{label.color}"
-    end
-  end
-
-  def add_books
-    create_label
-    print 'OOPS Catlog# '
-    print 'Publisher: '
-    publisher = gets.chomp
-
-    print 'OOP Catalog#'
-    print 'Publish date:'
-    publish_date = gets.chomp
-
-    print 'OOPS Catalog#'
-    print 'state of the cover (Good or Bad):'
-    cover_state = gets.chomp
-    book = Book.new(publish_date, publisher, cover_state)
-    @books.push(book)
-  end
-
-  def create_label
-    print 'Add Label:'
-    title = gets.chomp
-    print 'Add Color:'
-    color = gets.chomp
-    @labels.push(Label.new(title, color))
   end
 end
