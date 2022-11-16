@@ -27,8 +27,10 @@ class Operations
     loop do
       list_options
       opt = enter_option
-      if opt.between?(1, 9)
+      if opt.between?(1, 6)
         choose_method(opt)
+      elsif opt.between?(7, 9)
+        add_item(opt)
       elsif opt == 10
         puts 'Thank you for using our App'
         exit
@@ -39,26 +41,31 @@ class Operations
   end
 
   def enter_option
-    print 'Enter option (1 - 13): '
+    print 'Enter option (1 - 10): '
     gets.chomp.to_i
   end
 
   def choose_method(option)
     case option
-    # when 1
-    #   @book.display_books
+    when 1
+      @app.list_books
     when 2
       @app.list_music_albums
     when 3
       @app.list_all_games
-    # when 4
-    #   @book.list_labels
+    when 4
+      @app.list_label
     when 5
       @app.list_all_authors
     when 6
       @app.list_genres
-    # when 7
-    #   @book.add_book
+    end
+  end
+
+  def add_item(opt)
+    case opt
+    when 7
+      @app.add_books
     when 8
       @app.add_music_album
     when 9

@@ -1,23 +1,30 @@
 require './musicAlbum/genre'
 require './musicAlbum/music_album'
+require './Book/book'
+require './Book/label'
 require './file'
 require 'json'
 require_relative './games/game'
 require_relative './authors/author'
 require_relative './games/create_game'
 
+# rubocop:disable Metrics/ClassLength
 class App
   include CreateGame
 
   def initialize
     @genres = []
     @music_albums = []
+    @books = []
+    @labels = []
     @games = []
     @authors = []
     @file_games = Persist.new('store/games.json')
     @file_authors = Persist.new('store/authors.json')
     @file_music_albums = Persist.new('store/music_albums.json')
+    @file_book = Persist.new('store/book.josn')
     @file_genres = Persist.new('store/genres.json')
+    @file_label = Persist.new('store/label.json')
   end
 
   def list_music_albums
@@ -113,6 +120,46 @@ class App
     @genres.push(Genre.new(name))
   end
 
+  def list_books
+    puts 'Current books'
+    @books.each_with_index do |bk, i|
+      puts "#{i}) publish_date: #{bk.publish_date}, publisher: #{bk.publisher}, cover_state: #{bk.cover_state} "
+    end
+    puts
+  end
+
+  def list_label
+    puts 'Current labels availeble '
+    @labels.each_with_index do |label, i|
+      puts "Label Index #{i}: #{label.title}, Color: #{label.color}"
+    end
+  end
+
+  def add_books
+    create_label
+    print 'OOPS Catlog# '
+    print 'Publisher: '
+    publisher = gets.chomp
+
+    print 'OOP Catalog#'
+    print 'Publish date:'
+    publish_date = gets.chomp
+
+    print 'OOPS Catalog#'
+    print 'state of the cover (Good or Bad):'
+    cover_state = gets.chomp
+    book = Book.new(publish_date, publisher, cover_state)
+    @books.push(book)
+  end
+
+  def create_label
+    print 'Add Label:'
+    title = gets.chomp
+    print 'Add Color:'
+    color = gets.chomp
+    @labels.push(Label.new(title, color))
+  end
+
   def create_game
     add_game
   end
@@ -141,3 +188,4 @@ class App
     end
   end
 end
+# rubocop:enable Metrics/ClassLength
