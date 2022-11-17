@@ -2,6 +2,8 @@
 
 "Catalog of my things" should be a simple console app that allows users to manage collections of the things they own.
 
+[Video Application of application in action](https://files.fm/f/2xu4xjupq)
+
 ## Getting Started
 
 ![Alt text](./catalog_of_my_things.png)
