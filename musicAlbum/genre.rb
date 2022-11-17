@@ -1,5 +1,4 @@
 require_relative './music_album'
-# require 'pry'
 
 class Genre
   attr_accessor :name
@@ -16,9 +15,3 @@ class Genre
     item.genre = self
   end
 end
-
-# g = Genre.new('RnB')
-# m = MusicAlbum.new('Love song', true, 2010, false)
-# m_two = MusicAlbum.new('Hate song', true, 2020, false)
-
-# binding.pry
