@@ -4,19 +4,51 @@
 
 ## Getting Started
 
+![Alt text](./catalog_of_my_things.png)
+
 This repository includes files with plain SQL that can be used to recreate a database:
 
 - Use [schema.sql](./schema.sql) to create all tables.
 
-### To run the ruby application follow the following simple steps.
-
-- clone the repo to local computer.
+### To run the ruby application follow the following simple steps
 
 - Ensure you have ruby installed and added to path.
 
-- From your terminal, navigate to project folder.
+- clone the repo to local computer. Open your terminal and navigate to the folder you wish to clone your project at then run
 
-- While in root project folder in the terminal, run `ruby main.rb`
+```bash
+git clone https://github.com/itsmraga-hub/catalogue-of-my-things
+```
+
+### Move into the directory with
+
+```bash
+cd catalogue-of-my-things
+```
+
+### Run Project
+
+```bash
+ruby main.rb
+```
+
+### Install linter
+
+```bash
+bundle install
+```
+
+### Run linter
+
+```bash
+rubocop .
+```
+
+### Run tests
+
+```bash
+rspec spec
+```
 
 - Enjoy the application and leave a star if you enjoy it.
 
