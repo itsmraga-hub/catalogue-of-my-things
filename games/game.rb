@@ -16,4 +16,9 @@ class Game < Item
   def can_be_archived?
     @archived && @last_played_at > 2
   end
+
+  def author=(author)
+    @author = author
+    author.items.push(self) unless author.items.include?(self)
+  end
 end

@@ -20,7 +20,7 @@ class Item
   end
 
   def can_be_archived?
-    2022 - @publish_date > 10
+    Date.today.year - @publish_date.to_i >= 10
   end
 
   def move_to_archive!
