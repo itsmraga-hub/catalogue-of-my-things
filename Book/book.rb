@@ -9,10 +9,8 @@ class Book < Item
   end
 
   def can_be_archived?
-    super || cover_state == 'bad'
+    super || @cover_state == 'bad'
   end
 
   attr_accessor :publisher, :cover_state
 end
-
-# book = Book.new(2022, 'milen', 'good')
