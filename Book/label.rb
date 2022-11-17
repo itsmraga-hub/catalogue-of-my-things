@@ -14,4 +14,3 @@ class Label
   end
 end
 
-# label = Label.new('Gift', 'blue')
